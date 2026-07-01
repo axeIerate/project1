@@ -6,23 +6,23 @@ use Livewire\Component;
 
 class ContactForm extends Component
 {
-    public $name = '';
-    public $email = '';
-    public $message = '';
+    public string $name = '';
+    public string $email = '';
+    public string $message = '';
 
-    protected $rules = [
+    protected array $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
         'message' => 'required|min:10',
     ];
 
     // real-time validate on each field update
-    public function updated($propertyName)
+    public function updated(string $propertyName): void
     {
         $this->validateOnly($propertyName);
     }
 
-    public function submit()
+    public function submit(): void
     {
         $this->validate();
 
@@ -32,7 +32,7 @@ class ContactForm extends Component
         $this->reset();
     }
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View
     {
         return view('livewire.contact-form');
     }

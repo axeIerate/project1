@@ -12,13 +12,13 @@ use Livewire\Attributes\Title;
 ]
 class TodoList extends Component
 {
-    public $title = '';
-    public $deadline = '';
-    public $editId = null;
-    public $editTitle = '';
-    public $editDeadline = '';
+    public string $title = '';
+    public ?string $deadline = null;
+    public ?int $editId = null;
+    public string $editTitle = '';
+    public ?string $editDeadline = null;
 
-    public function addTodo()
+    public function addTodo(): void
     {
     $this->validate(['title' => 'required|min:1']);
     Todo::create([
@@ -29,12 +29,12 @@ class TodoList extends Component
     $this->deadline = '';
     }
 
-    public function deleteTodo($id)
+    public function deleteTodo(int $id): void
     {
         Todo::findOrFail($id)->delete();
     }
 
-    public function editTodo($id)
+    public function editTodo(int $id): void
     {
     $todo = Todo::findOrFail($id);
     $this->editId = $id;
@@ -42,7 +42,7 @@ class TodoList extends Component
     $this->editDeadline = $todo->deadline;
     }
 
-    public function updateTodo()
+    public function updateTodo(): void
     {
     $this->validate(['editTitle' => 'required|min:1']);
     Todo::findOrFail($this->editId)->update([
@@ -54,13 +54,13 @@ class TodoList extends Component
     $this->editDeadline = '';
     }
 
-    public function toggleComplete($id)
+    public function toggleComplete(int $id): void
     {
         $todo = Todo::findOrFail($id);
         $todo->update(['completed' => !$todo->completed]);
     }
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View
     {
         return view('livewire.todo-list', ['todos' => Todo::all()]);
     }
