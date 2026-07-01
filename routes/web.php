@@ -9,3 +9,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 require __DIR__.'/settings.php';
+
+use App\Livewire\TodoList;
+
+Route::get('/todos', TodoList::class);
+
+use App\Livewire\ContactForm;
+
+Route::get('/contact', ContactForm::class);
