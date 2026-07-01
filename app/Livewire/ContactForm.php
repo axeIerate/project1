@@ -10,6 +10,7 @@ class ContactForm extends Component
     public string $email = '';
     public string $message = '';
 
+    /** @var array<string, string> */
     protected array $rules = [
         'name' => 'required|min:3',
         'email' => 'required|email',
