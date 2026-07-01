@@ -25,14 +25,14 @@ Built as part of OJT learning at Clique HA, to get practical experience with the
 ## Project structure notes
 
 - `app/Models/`
-  - `Todo.php` — Eloquent model for to-do items (title, completed, deadline)
+  - `Todo.php` - Eloquent model for to-do items (title, completed, deadline)
 - `app/Livewire/`
-  - `TodoList.php` — component handling add/edit/delete/toggle-complete logic
-  - `ContactForm.php` — component handling real-time validated form submission
+  - `TodoList.php` - component handling add/edit/delete/toggle-complete logic
+  - `ContactForm.php` - component handling real-time validated form submission
 - `resources/views/livewire/`
   - Blade views for the to-do list and contact form components
 - `database/factories/`
-  - `TodoFactory.php` — factory for generating test/seed data
+  - `TodoFactory.php` - factory for generating test/seed data
 
 ## CI
 
